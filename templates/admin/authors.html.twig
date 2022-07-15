@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+{% for author in authors %}
+    <article>
+        <h2>{{ author.firstName }} {{ author.lastName }}</h2>
+        <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
+        <a href="{{ path('admin-author',{'id':author.id}) }}">Voir l'auteur</a>
+        <a href="{{ path('admin-update-author',{'id':author.id}) }}">Modifier l'auteur</a>
+        <a href="{{ path('admin-delete-author',{'id':author.id}) }}">Supprimer l'auteur</a>
+
+    </article>
+{% endfor %}
+{% endblock %}

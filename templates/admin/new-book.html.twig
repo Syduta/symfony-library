@@ -1,0 +1,15 @@
+{% extends'base.html.twig' %}
+
+{% block main %}
+    {{ form_start(form) }}
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title) }}
+        {{ form_label(form.pages) }}
+        {{ form_widget(form.pages) }}
+        {{ form_label(form.publishedAt) }}
+        {{ form_widget(form.publishedAt) }}
+        {{ form_label(form.author) }}
+        {{ form_widget(form.author) }}
+        {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

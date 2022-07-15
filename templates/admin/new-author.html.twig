@@ -1,0 +1,15 @@
+{% extends'base.html.twig' %}
+
+{% block main %}
+    {{ form_start(form) }}
+        {{ form_label(form.firstName) }}
+        {{ form_widget(form.firstName) }}
+        {{ form_label(form.lastName) }}
+        {{ form_widget(form.lastName) }}
+        {{ form_label(form.birthDate) }}
+        {{ form_widget(form.birthDate) }}
+        {{ form_label(form.deathDate) }}
+        {{ form_widget(form.deathDate) }}
+        {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

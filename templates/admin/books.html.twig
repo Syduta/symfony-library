@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+    {% for book in books %}
+        <article>
+            <h2>{{ book.title }}</h2>
+            <p>de {{ book.author.firstName }} {{ book.author.lastName }}</p>
+            <p>publié le {{ book.publishedAt|date ('d-M-y') }}</p>
+            <p>{{ book.pages }} pages</p>
+            <a href="{{ path('admin-book',{'id':book.id}) }}">Voir le livre</a>
+            <a href="{{ path('admin-update-book',{'id':book.id}) }}">Modifier le livre</a>
+            <a href="{{ path('admin-delete-book',{'id':book.id}) }}">Supprimer le livre</a>
+        </article>
+    {% endfor %}
+{% endblock %}

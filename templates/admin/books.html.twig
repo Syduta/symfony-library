@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block main %}
     {% for book in books %}
-        <article>
+        <article class="articles">
             <h2>{{ book.title }}</h2>
             <p>de {{ book.author.firstName }} {{ book.author.lastName }}</p>
             <p>publié le {{ book.publishedAt|date ('d-M-y') }}</p>

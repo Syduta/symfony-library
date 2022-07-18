@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <article>
+    <article class="articles auteur">
         <h2>{{ author.firstName }} {{ author.lastName }}</h2>
         <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
         <p>Livres majeurs :</p>
         {% for book in author.books %}
-            <p>{{ book.title }}</p>
+            <a href="{{ path('admin-book',{'id':book.id}) }}"><p>{{ book.title }}</p></a>
         {% endfor %}
     </article>
 {% endblock %}

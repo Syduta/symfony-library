@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("https://sbooks.net/wp-content/uploads/2021/10/old-book-flying-letters-magic-light-background-bookshelf-library-ancient-books-as-symbol-knowledge-history-218640948.jpg");
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #181B24;
+    padding: 1rem;
+
+}
+
+h1 {
+    color: sandybrown;
+    background-color: #181B24;
+    padding-bottom: 1rem;
+}
+
+h2, p{
+    color: white;
+
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+ul li{
+    list-style: none;
+    display: inline-block;
+}
+
+li a{
+    text-decoration: none;
+    margin: 0rem 1rem;
+    border: 1px solid #181B24;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    background-color: #181B24;
+    color: sandybrown;
+    transition: 0.8ms;
+}
+
+li a:hover{
+    background-color: sandybrown;
+    color: #181B24;
+}
+
+.articles{
+    display: flex;
+    display: inline-block;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 2rem;
+    width: 40%;
+    margin: 3rem 4rem;
+
+}
+
+.auteur{
+    margin-top: 25vh;
+
+}

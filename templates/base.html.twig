@@ -12,7 +12,11 @@
     {% endblock %}
 </head>
 <body>
-
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        <h2 class="alert-success text-center">{{ message }}</h2>
+    </div>
+{% endfor %}
 <header>
     <nav>
         <ul>

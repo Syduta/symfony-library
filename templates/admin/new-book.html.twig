@@ -1,15 +1,21 @@
 {% extends'base.html.twig' %}
 
 {% block main %}
-    {{ form_start(form) }}
-        {{ form_label(form.title) }}
-        {{ form_widget(form.title) }}
-        {{ form_label(form.pages) }}
-        {{ form_widget(form.pages) }}
-        {{ form_label(form.publishedAt) }}
-        {{ form_widget(form.publishedAt) }}
-        {{ form_label(form.author) }}
-        {{ form_widget(form.author) }}
-        {{ form_widget(form.submit) }}
-    {{ form_end(form) }}
+    <div class="form text-center">
+        {{ form_start(form) }}
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+        <div class="text-center">
+            {{ form_label(form.pages) }}
+            {{ form_widget(form.pages) }}
+        </div>
+            {{ form_label(form.publishedAt) }}
+            {{ form_widget(form.publishedAt) }}
+            {{ form_label(form.author) }}
+            {{ form_widget(form.author) }}
+        <div class="text-center">
+            {{ form_widget(form.submit) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

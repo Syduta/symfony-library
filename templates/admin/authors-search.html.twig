@@ -3,7 +3,7 @@
 {% block main %}
 
     {% for author in authors %}
-        <article>
+        <article class="text-center">
             <h2>{{ author.firstName }} {{ author.lastName }}</h2>
             <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
             <a href="{{ path('admin-author',{'id':author.id}) }}">Voir l'auteur</a>
@@ -12,7 +12,7 @@
         </article>
     {% endfor %}
     {% for book in books %}
-        <article>
+        <article class="text-center">
             <h2>{{ book.title }}</h2>
             <a href="{{ path('admin-book',{'id':book.id}) }}">Voir le livre</a>
             <a href="{{ path('admin-update-book',{'id':book.id}) }}">Modifier le livre</a>

@@ -1,15 +1,21 @@
 {% extends'base.html.twig' %}
 
 {% block main %}
+    <div class="form text-center">
     {{ form_start(form) }}
         {{ form_label(form.firstName) }}
         {{ form_widget(form.firstName) }}
         {{ form_label(form.lastName) }}
         {{ form_widget(form.lastName) }}
+        <div class="row">
         {{ form_label(form.birthDate) }}
         {{ form_widget(form.birthDate) }}
+        </div>
         {{ form_label(form.deathDate) }}
         {{ form_widget(form.deathDate) }}
+        {{ form_label(form.picture) }}
+        {{ form_widget(form.picture) }}
         {{ form_widget(form.submit) }}
     {{ form_end(form) }}
+    </div>
 {% endblock %}

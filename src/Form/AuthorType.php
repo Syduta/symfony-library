@@ -24,6 +24,7 @@ class AuthorType extends AbstractType
                 'widget'=>'choice',
                 'years'=>range(date('Y'),date('Y')-300)
             ])
+            ->add('picture')
             ->add('submit',SubmitType::class)
         ;
     }

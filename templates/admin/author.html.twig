@@ -3,6 +3,7 @@
 {% block main %}
     <article class="articles auteur">
         <h2>{{ author.firstName }} {{ author.lastName }}</h2>
+        <img class="picture" src="{{ author.picture }}" alt="">
         <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
         <p>Livres majeurs :</p>
         {% for book in author.books %}

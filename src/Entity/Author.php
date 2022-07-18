@@ -31,6 +31,9 @@ class Author
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Book::class)]
     private Collection $books;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $picture = null;
+
     public function __construct()
     {
         $this->books = new ArrayCollection();
@@ -115,6 +118,18 @@ class Author
                 $book->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }

@@ -72,16 +72,13 @@ class AdminAuthorsController extends AbstractController
             );
             $author->setImage($newFilename);
 
-
-
-
             $entityManager->persist($author);
             $entityManager->flush();
             $this->addFlash('success','auteur mis à jour');
         }
         return$this->render("admin/update-author.html.twig",
             ['form'=>$form->createView(),
-                'author'=>$author]);
+             'author'=>$author]);
     }
 
     /**

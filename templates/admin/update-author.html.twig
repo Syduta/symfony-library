@@ -2,6 +2,27 @@
 
 {% block main %}
     <div class="form text-center">
-        {{ form(form) }}
+        {{ form_start(form) }}
+        {{ form_label(form.firstName) }}
+        {{ form_widget(form.firstName) }}
+        {{ form_label(form.lastName) }}
+        {{ form_widget(form.lastName) }}
+        <div class="row">
+            {{ form_label(form.birthDate) }}
+            {{ form_widget(form.birthDate) }}
+        </div>
+        {{ form_label(form.deathDate) }}
+        {{ form_widget(form.deathDate) }}
+        {{ form_label(form.picture) }}
+        {{ form_widget(form.picture) }}
+            {% if author.image %}
+        <div>
+                <img class="picture" src="{{ asset('uploads/images/'~author.image)  }}" alt="{{ author.lastName }}">
+        </div>
+            {% endif %}
+        {{ form_label(form.image) }}
+        {{ form_widget(form.image) }}
+        {{ form_widget(form.submit) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}

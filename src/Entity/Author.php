@@ -34,6 +34,26 @@ class Author
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $picture = null;
 
+    #[ORM\Column(type: "string")]
+    private ?string $image;
+
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
     public function __construct()
     {
         $this->books = new ArrayCollection();

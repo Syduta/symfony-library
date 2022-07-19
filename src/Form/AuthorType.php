@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Author;
 use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,6 +25,7 @@ class AuthorType extends AbstractType
                 'widget'=>'choice',
                 'years'=>range(date('Y'),date('Y')-300)
             ])
+            ->add('image',FileType::class,['mapped'=>false])
             ->add('picture')
             ->add('submit',SubmitType::class)
         ;

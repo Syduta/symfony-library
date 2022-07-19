@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 
 class AdminAuthorsController extends AbstractController
@@ -56,30 +57,64 @@ class AdminAuthorsController extends AbstractController
      * @Route("/admin/authors/update/{id}",name="admin-update-author")
      */
 
-    public function updateAuthor($id,AuthorRepository$authorRepository, EntityManagerInterface $entityManager, Request $request){
+    public function updateAuthor($id,AuthorRepository$authorRepository, EntityManagerInterface $entityManager, Request $request, SluggerInterface$slugger){
         $author = $authorRepository->find($id);
         $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+
+            $image=$form->get('image')->getData();
+            $originalFilename = pathinfo($image->getClientOriginalName(),PATHINFO_FILENAME);
+            $safeFilename=$slugger->slug($originalFilename);
+            $newFilename=$safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+            $image->move(
+                $this->getParameter('images_directory'),$newFilename
+            );
+            $author->setImage($newFilename);
+
+
+
+
             $entityManager->persist($author);
             $entityManager->flush();
             $this->addFlash('success','auteur mis à jour');
         }
-        return$this->render("admin/update-author.html.twig",['form'=>$form->createView()]);
+        return$this->render("admin/update-author.html.twig",
+            ['form'=>$form->createView(),
+                'author'=>$author]);
     }
 
     /**
      * @Route("/admin/new-author",name="new-author")
      */
 
-    public function newAuthor(EntityManagerInterface $entityManager, Request $request){
+    public function newAuthor(EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger){
         $author = new Author();
         $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            //pour image
+
+            //je récupère l'image dans le formulaire qu est en mapped false donc faut gérer nous même l'upload
+            $image=$form->get('image')->getData();
+            //on récup le nom du fichier original
+            $originalFilename = pathinfo($image->getClientOriginalName(),PATHINFO_FILENAME);
+            //j'utilise une instance de la classe slugger et sa méthode slug pour suppr caractères spéciaux
+            // espaces etc
+            $safeFilename=$slugger->slug($originalFilename);
+            //je rajoute au nom de l'image un identifiant unique au cas ou l'image soit ajoutée un autre fois
+            $newFilename=$safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+            //je déplace l'image et lui donne un nouveau nom
+            $image->move(
+                $this->getParameter('images_directory'),$newFilename
+            );
+            $author->setImage($newFilename);
+
+            //fin image
             $entityManager->persist($author);
             $entityManager->flush();
             $this->addFlash('success','auteur ajouté');
+
         }
         return $this->render("/admin/new-author.html.twig",['form'=>$form->createView()]);
 //        dd("coucou");

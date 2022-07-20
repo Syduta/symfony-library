@@ -1,0 +1,28 @@
+footer{
+  background-color: $primarycolor;
+  padding-bottom: 1rem;
+}
+
+ul{
+  display: flex;
+  justify-content: center;
+
+}
+
+li{
+  display: inline-block;
+  margin: 1rem;
+
+}
+
+a{
+  color: $secondcolor;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+a:hover{
+  background-color: $secondcolor;
+  color: $primarycolor;
+}

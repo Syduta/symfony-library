@@ -1,0 +1,29 @@
+.articles{
+  display: flex;
+  display: inline-block;
+  text-align: center;
+  width: 40%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem 4rem;
+}
+h2{
+  color: $secondcolor;
+
+}
+
+p{
+  color: $pcolor;
+}
+
+article a{color: $pcolor}
+
+a:hover{
+  background-color: $secondcolor;
+  color: $primarycolor;
+}
+
+img{
+  width: 10vw;
+}

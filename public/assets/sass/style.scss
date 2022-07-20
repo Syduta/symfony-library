@@ -1,0 +1,26 @@
+@import "colours";
+//@import "fonts";
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/articles";
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("https://sbooks.net/wp-content/uploads/2021/10/old-book-flying-letters-magic-light-background-bookshelf-library-ancient-books-as-symbol-knowledge-history-218640948.jpg");
+}
+main{
+    min-height: 80vh;
+}
+
+h1{
+    color: chocolate;
+    text-align: center;
+    background-color: $primarycolor;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+
+}

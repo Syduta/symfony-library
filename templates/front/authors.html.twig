@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    {% for author in authors %}
+        <article class="articles">
+            <h2>{{ author.firstName }} {{ author.lastName }}</h2>
+            <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
+            <img class="picture" src="{{ asset('uploads/images/'~author.image) }}" alt="">
+            <div class="row">
+                <a href="{{ path('author',{'id':author.id}) }}">Voir l'auteur</a>
+            </div>
+
+        </article>
+    {% endfor %}
+{% endblock %}

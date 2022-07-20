@@ -67,7 +67,7 @@ class AdminBooksController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-book",name="new-book")
+     * @Route("/admin/new-book",name="admin-new-book")
      */
 
     public function newBook(EntityManagerInterface $entityManager, Request $request){

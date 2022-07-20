@@ -18,11 +18,9 @@
             <li><a href="{{ path('app_login') }}">Connexion</a></li>
             <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
             <li><a href="{{ path('home') }}">Accueil</a></li>
-            <li><a href="{{ path('admin-authors') }}">Auteurs</a></li>
-            <li><a href="{{ path('admin-books') }}">Bouquins</a></li>
-            <li><a href="{{ path('new-author') }}">Ajouter un auteur</a></li>
-            <li><a href="{{ path('new-book') }}">Ajouter un livre</a></li>
-            <li><form action="{{ path('admin-authors-search') }}" method="get">
+            <li><a href="{{ path('authors') }}">Auteurs</a></li>
+            <li><a href="{{ path('books') }}">Bouquins</a></li>
+            <li><form action="{{ path('authors-search') }}" method="get">
                     <input type="text" name="search" placeholder="Votre recherche">
                     <input type="submit">
                 </form>
@@ -45,10 +43,9 @@
 <footer class="footer">
     <ul>
         <li><a href="{{ path('home') }}">Accueil</a></li>
-        <li><a href="{{ path('admin-authors') }}">Auteurs</a></li>
-        <li><a href="{{ path('admin-books') }}">Bouquins</a></li>
-        <li><a href="{{ path('new-author') }}">Ajouter un auteur</a></li>
-        <li><a href="{{ path('new-book') }}">Ajouter un livre</a></li>
+        <li><a href="{{ path('authors') }}">Auteurs</a></li>
+        <li><a href="{{ path('books') }}">Bouquins</a></li>
+
     </ul>
 </footer>
 </body>

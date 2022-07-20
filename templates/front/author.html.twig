@@ -1,4 +1,4 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block main %}
     <article class="articles auteur">
@@ -7,7 +7,7 @@
         <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
         <p>Livres majeurs :</p>
         {% for book in author.books %}
-            <a href="{{ path('admin-book',{'id':book.id}) }}"><p>{{ book.title }}</p></a>
+            <a href="{{ path('book',{'id':book.id}) }}"><p>{{ book.title }}</p></a>
         {% endfor %}
     </article>
 {% endblock %}

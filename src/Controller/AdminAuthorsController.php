@@ -46,10 +46,10 @@ class AdminAuthorsController extends AbstractController
             $entityManager->remove($author);
             $entityManager->flush();
             $this->addFlash('success','auteur supprimé de la base de données');
-            return$this->redirectToRoute('admin-authors');
+            return$this->redirectToRoute('admin-authors.html.twig');
         }else{
             $this->addFlash('success','auteur déjà supprimé');
-            return $this->redirectToRoute('admin-authors');
+            return $this->redirectToRoute('admin-authors.html.twig');
         }
     }
 
@@ -82,7 +82,7 @@ class AdminAuthorsController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-author",name="new-author")
+     * @Route("/admin/new-author",name="admin-new-author")
      */
 
     public function newAuthor(EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger){

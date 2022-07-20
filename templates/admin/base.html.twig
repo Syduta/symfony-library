@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang=fr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {% block title %}
+        <title>The Big Library</title>
+    {% endblock %}
+</head>
+<body>
+<header>
+    <nav>
+        <h2 class="text-align">Bonjour {{ app.user.email }}</h2>
+        <ul>
+            <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+            <li><a href="{{ path('admin-home') }}">Accueil</a></li>
+            <li><a href="{{ path('admin-authors') }}">Auteurs</a></li>
+            <li><a href="{{ path('admin-books') }}">Bouquins</a></li>
+            <li><a href="{{ path('admin-new-author') }}">Ajouter un auteur</a></li>
+            <li><a href="{{ path('admin-new-book') }}">Ajouter un livre</a></li>
+            <li><form action="{{ path('admin-authors-search') }}" method="get">
+                    <input type="text" name="search" placeholder="Votre recherche">
+                    <input type="submit">
+                </form>
+            </li>
+        </ul>
+    </nav>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            <h3 class="alert-success text-center">{{ message }}</h3>
+        </div>
+    {% endfor %}
+</header>
+<main>
+
+
+    {% block main %}
+
+    {% endblock %}
+</main>
+<footer class="footer">
+    <ul>
+        <li><a href="{{ path('admin-home') }}">Accueil</a></li>
+        <li><a href="{{ path('admin-authors') }}">Auteurs</a></li>
+        <li><a href="{{ path('admin-books') }}">Bouquins</a></li>
+        <li><a href="{{ path('admin-new-author') }}">Ajouter un auteur</a></li>
+        <li><a href="{{ path('admin-new-book') }}">Ajouter un livre</a></li>
+        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+    </ul>
+</footer>
+</body>
+</html>

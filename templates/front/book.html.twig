@@ -1,9 +1,9 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block main %}
     <article class="auteur offset-2">
         <h2>{{ book.title }}</h2>
-        <a href="{{ path('admin-author',{'id':book.author.id}) }}"><p>de {{ book.author.firstName }} {{ book.author.lastName }}</p></a>
+        <a href="{{ path('author',{'id':book.author.id}) }}"><p>de {{ book.author.firstName }} {{ book.author.lastName }}</p></a>
         <p>publié le {{ book.publishedAt|date ('d-M-y') }}</p>
         <p>{{ book.pages }} pages</p>
     </article>

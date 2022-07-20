@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    {% for author in authors %}
+        <article class="text-center">
+            <h2>{{ author.firstName }} {{ author.lastName }}</h2>
+            <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
+            <a href="{{ path('author',{'id':author.id}) }}">Voir l'auteur</a>
+
+        </article>
+    {% endfor %}
+    {% for book in books %}
+        <article class="text-center">
+            <h2>{{ book.title }}</h2>
+            <a href="{{ path('book',{'id':book.id}) }}">Voir le livre</a>
+
+        </article>
+    {% endfor %}
+{% endblock %}

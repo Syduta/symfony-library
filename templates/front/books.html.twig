@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+    {% for book in books %}
+        <article class="articles">
+            <h2>{{ book.title }}</h2>
+            <a href="{{ path('author',{'id':book.author.id}) }}"><p>de {{ book.author.firstName }} {{ book.author.lastName }}</p></a>
+            <p>publié le {{ book.publishedAt|date ('d-M-y') }}</p>
+            <p>{{ book.pages }} pages</p>
+            <a href="{{ path('book',{'id':book.id}) }}">Voir le livre</a>
+        </article>
+    {% endfor %}
+{% endblock %}

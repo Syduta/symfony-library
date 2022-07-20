@@ -6,10 +6,12 @@
     <article class="articles">
         <h2>{{ author.firstName }} {{ author.lastName }}</h2>
         <p>né le {{ author.birthDate|date ('d-M-y') }} et décédé le {{ author.deathDate|date ('d-M-y') }}</p>
-        <img class="picture" src="{{ asset('uploads/images/'~author.image) }}" alt="{{ author.lastName }}">
-        <a href="{{ path('admin-author',{'id':author.id}) }}">Voir l'auteur</a>
-        <a href="{{ path('admin-update-author',{'id':author.id}) }}">Modifier l'auteur</a>
-        <a href="{{ path('admin-delete-author',{'id':author.id}) }}">Supprimer l'auteur</a>
+        <img class="picture" src="{{ asset('uploads/images/'~author.image) }}" alt="">
+        <div class="row">
+            <a href="{{ path('admin-author',{'id':author.id}) }}">Voir l'auteur</a>
+            <a href="{{ path('admin-update-author',{'id':author.id}) }}">Modifier l'auteur</a>
+            <a href="{{ path('admin-delete-author',{'id':author.id}) }}">Supprimer l'auteur</a>
+        </div>
 
     </article>
 {% endfor %}

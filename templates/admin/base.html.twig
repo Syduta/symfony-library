@@ -14,10 +14,11 @@
 <body>
 <header>
     <nav>
-        <h2 class="text-align">Bonjour {{ app.user.email }}</h2>
         <ul>
             <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
             <li><a href="{{ path('admin-home') }}">Accueil</a></li>
+            <li><a href="{{ path('admin-admins') }}">Admins</a></li>
+            <li><a href="{{ path('admin-add') }}">Ajouter admins</a></li>
             <li><a href="{{ path('admin-authors') }}">Auteurs</a></li>
             <li><a href="{{ path('admin-books') }}">Bouquins</a></li>
             <li><a href="{{ path('admin-new-author') }}">Ajouter un auteur</a></li>
@@ -45,6 +46,8 @@
 <footer class="footer">
     <ul>
         <li><a href="{{ path('admin-home') }}">Accueil</a></li>
+        <li><a href="{{ path('admin-admins') }}">Admins</a></li>
+        <li><a href="{{ path('admin-add') }}">Ajouter admins</a></li>
         <li><a href="{{ path('admin-authors') }}">Auteurs</a></li>
         <li><a href="{{ path('admin-books') }}">Bouquins</a></li>
         <li><a href="{{ path('admin-new-author') }}">Ajouter un auteur</a></li>

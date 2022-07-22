@@ -24,29 +24,30 @@
 // })
 // console.log(localStorage);
 //
+//je sélectionne le body grâce à sa classe et je le mets dans une variable
 const body = document.querySelector('.js-body');
 
 // je check si le mode chartreuse est activé dans le local storage,
-// si oui je l'active avec le CSS
+// si oui je l'active avec le CSS en lui ajoutant la classe adéquate
 const chartreuseMode  = localStorage.getItem('color-char')=== 'true';
 if (chartreuseMode) {
     body.classList.add('color-char');
 }
-
-const nightToggleBtn = document.querySelector('.js-night-toggle');
-
-nightToggleBtn.addEventListener('click', function() {
-
+//je sélectionne le bouton grâce à sa classe et je le mets dans une variable
+const toggleBtn = document.querySelector('.js-night-toggle');
+//j'écoute les clicks sur le bouton pour lui ordonner
+toggleBtn.addEventListener('click', function() {
+    //d'activer le mode chartreuse ou pas
     // si le mode chartreuse est activé, je le désactive
     if (body.classList.contains('color-char')) {
         body.classList.remove('color-char');
-        // je supprime le mode nuit du local storage
+        // je supprime le mode chartreuse du local storage
         localStorage.removeItem('color-char');
         console.log(localStorage);
         // si le mode chartreuse n'est pas activé, je l'active
     } else {
         body.classList.add('color-char');
-        // j'enregistre le mode nuit dans le local storage
+        // j'enregistre le mode chartreuse dans le local storage
         localStorage.setItem('color-char', "true");
         console.log(localStorage);
     }

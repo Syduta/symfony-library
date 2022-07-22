@@ -61,3 +61,15 @@ toggleBtn.addEventListener('click', function() {
     }
 
 });
+
+const burger = document.getElementById('burger');
+console.log(burger);
+const li = document.querySelector('.li-burger')
+console.log(li);
+burger.addEventListener('click',function () {
+    if(li.classList.contains('d-none')){
+        li.classList.remove('d-none');
+    }else{
+        li.classList.add('d-none');
+    }
+});

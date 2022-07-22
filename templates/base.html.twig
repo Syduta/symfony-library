@@ -12,45 +12,65 @@
     {% endblock %}
 </head>
 <body class="js-body">
-<header class="js-header">
-    <nav>
+    <header class="js-header">
+        <nav class="nav-desktop">
+            <ul>
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('authors') }}">Auteurs</a></li>
+                <li><a href="{{ path('books') }}">Bouquins</a></li>
+                <li><form action="{{ path('authors-search') }}" method="get">
+                        <input type="text" name="search" placeholder="Votre recherche">
+                        <input type="submit">
+                    </form>
+                </li>
+                <li>
+                    <button class="js-night-toggle">shrek mode</button>
+                </li>
+            </ul>
+        </nav>
+        <nav>
+            <a id="burger"><img class="logoburger" src="https://www.citypng.com/public/uploads/preview/transparent-hd-white-menu-burger-icon-31634946136ufll2pj5eo.png" alt=""></a>
+            <ul class="d-none li-burger">
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('authors') }}">Auteurs</a></li>
+                <li><a href="{{ path('books') }}">Bouquins</a></li>
+            </ul>
+            <ul class="byebye">
+                <li><form action="{{ path('authors-search') }}" method="get">
+                        <input type="text" name="search" placeholder="Votre recherche">
+                        <input type="submit">
+                    </form>
+                </li>
+                <li>
+                    <button class="js-night-toggle">shrek mode</button>
+                </li>
+            </ul>
+        </nav>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            <h3 class="alert-success text-center">{{ message }}</h3>
+        </div>
+    {% endfor %}
+    </header>
+    <main>
+
+
+    {% block main %}
+
+    {% endblock %}
+    </main>
+    <footer class="footer">
         <ul>
-            <li><a href="{{ path('app_login') }}">Connexion</a></li>
-            <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
             <li><a href="{{ path('home') }}">Accueil</a></li>
             <li><a href="{{ path('authors') }}">Auteurs</a></li>
             <li><a href="{{ path('books') }}">Bouquins</a></li>
-            <li><form action="{{ path('authors-search') }}" method="get">
-                    <input type="text" name="search" placeholder="Votre recherche">
-                    <input type="submit">
-                </form>
-            </li>
-            <li>
-                <button class="js-night-toggle">shrek mode</button>
-            </li>
+
         </ul>
-    </nav>
-{% for message in app.flashes('success') %}
-    <div class="alert alert-success">
-        <h3 class="alert-success text-center">{{ message }}</h3>
-    </div>
-{% endfor %}
-</header>
-<main>
-
-
-{% block main %}
-
-{% endblock %}
-</main>
-<footer class="footer">
-    <ul>
-        <li><a href="{{ path('home') }}">Accueil</a></li>
-        <li><a href="{{ path('authors') }}">Auteurs</a></li>
-        <li><a href="{{ path('books') }}">Bouquins</a></li>
-
-    </ul>
-</footer>
+    </footer>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>

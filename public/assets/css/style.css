@@ -88,10 +88,14 @@ img {
   color: white;
 }
 
-.color-char {
+.shrek-char {
   background-image: url("https://www.francetvinfo.fr/pictures/_e5MvZBwaRCTRGqKqARZgj5-ArY/752x423/2016/08/23/shrek-5.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.color-char {
+  background-color: chartreuse;
 }
 
 * {
